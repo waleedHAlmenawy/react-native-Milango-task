@@ -1,37 +1,58 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { View, Text } from "react-native";
+import React from "react";
+import {
+  createMaterialTopTabNavigator,
+  MaterialTopTabNavigationOptions,
+  MaterialTopTabNavigationEventMap,
+} from "@react-navigation/material-top-tabs";
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { withLayoutContext } from "expo-router";
+import { ParamListBase, TabNavigationState } from "@react-navigation/native";
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+const { Navigator } = createMaterialTopTabNavigator();
 
+export const MaterialTopTabs = withLayoutContext<
+  MaterialTopTabNavigationOptions,
+  typeof Navigator,
+  TabNavigationState<ParamListBase>,
+  MaterialTopTabNavigationEventMap
+>(Navigator);
+
+const Layout = () => {
   return (
-    <Tabs
+    <MaterialTopTabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
-      <Tabs.Screen
+        tabBarActiveTintColor: "#2B1190",
+        tabBarInactiveTintColor: "#7B848D",
+        tabBarLabelStyle: {
+          fontSize: 14,
+          fontWeight: "500",
+          textTransform: "capitalize",
+        },
+        tabBarIndicatorStyle: {
+          backgroundColor: "#68DDBA",
+          height: 1.5,
+        },
+        tabBarItemStyle: {
+          width: 120,
+        },
+        tabBarStyle: {
+          margin: 20,
+          elevation: 0,
+        },
+      }}
+      style={{
+        backgroundColor: "white",
+      }}
+    >
+      <MaterialTopTabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
+          title: "Explore",
         }}
       />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
-        }}
-      />
-    </Tabs>
+    </MaterialTopTabs>
   );
-}
+};
+
+export default Layout;
