@@ -47,7 +47,7 @@ const RepoScreen = ({ isDarkMode }) => {
 
     useEffect(() => {
         dispatch(fetchRepositories(100, date.replaceAll("/", "-")));
-    }, [dispatch, date]);
+    }, [date]);
 
     useEffect(() => {
         setProgrammingLanguages(() => [...new Set(repositories.map((item) => {
