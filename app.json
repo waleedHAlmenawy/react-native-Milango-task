@@ -1,33 +1,4 @@
 {
-  "expo": {
-    "name": "milango-task",
-    "slug": "milango-task",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.waleedAlmenawy.milango"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "1d509791-5d04-4cc0-89cb-2840bcf63999"
-      }
-    }
-  }
+  "name": "Milango",
+  "displayName": "Milango"
 }
